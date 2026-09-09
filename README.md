@@ -9,7 +9,6 @@ QQ 音乐桌面下载工具，支持歌曲搜索、版本与音质选择、歌�
 - 优先 FLAC、没有则 MP3，或选择指定音质策略；支持输出源格式、MP3、WAV。
 - 可选使用桌面 QQ 音乐当前账号，保留 QMC2 / EncV2 解码功能。
 - 下载后进行整首解码及保存校验；试听片段不会当作完整歌曲发布。
-- 同一保存目录只追加一个 `下载.log`，批量显示成功、失败、跳过数量。
 
 ## 使用条件
 
@@ -91,4 +90,3 @@ python scripts/build_exe.py --node "C:\tools\node.exe" --ffmpeg "C:\tools\ffmpeg
 
 本项目整体以 **GPL-3.0-or-later** 分发，原有第三方许可和归属继续保留。完整许可见 [LICENSE](LICENSE)，来源、版本、修改范围见 [THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md)。
 
-提交问题时请使用模拟歌曲信息并清理日志中的个人路径，不要粘贴 Cookie、会话、音频密钥、签名地址或音乐文件。补丁请同时提供相关离线测试。
