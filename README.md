@@ -81,7 +81,7 @@ python scripts/build_exe.py
 
 测试使用离线模拟请求和生成的测试音频，不访问真实账号。测试音频功能需先安装 FFmpeg。
 
-构建输出为 `dist\QQMusicDownloader.exe`，包含 Python / Tk 与本项目源文件及许可材料；FFmpeg 和 Node 继续由使用者单独安装。检查成品时执行 `QQMusicDownloader.exe --smoke-test packaged-check.json`。公开 EXE 前还需核对该次构建的 Python / Tk 许可材料，并在 Release 中提供对应项目源码。
+构建输出为 `dist\QQMusicDownloader.exe`，包含 Python / Tk 与本项目源文件及许可材料；FFmpeg 和 Node 继续由使用者单独安装。检查成品时执行 `QQMusicDownloader.exe --smoke-test packaged-check.json`。
 
 ## 开源许可与贡献
 
