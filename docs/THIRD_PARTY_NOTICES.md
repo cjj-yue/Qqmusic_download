@@ -29,9 +29,15 @@ Before adding provenance comments, `crypto.py` was byte-for-byte equivalent afte
 - The unsigned-32-bit hash behavior and EncV2 handling were checked against this reference during development. The JavaScript streaming transform and Python exporter implement the same format. The full original LICENSE is retained in `licenses/qmc-decoder-GPL-3.0.txt`.
 - The overall GPL-3.0-or-later selection accommodates this reference and potential adapted expression; citing an algorithm alone is not being treated as proof that all referencing code is necessarily derivative.
 
-## External tools
+## Bundled tools
 
-FFmpeg and Node.js are invoked as external processes and are not included in the program package.
+The standalone Windows EXE embeds Node.js v24.19.0 and FFmpeg 7.1 (Gyan essentials build). They run as separate child processes after extraction into the application temporary directory. The binaries are unmodified.
+
+Node.js copyright and all bundled dependency notices are retained in `licenses/node-v24.19.0-LICENSE.txt`. FFmpeg is Copyright (c) 2000-2024 the FFmpeg developers; this build reports GPLv3-or-later, retained in `licenses/ffmpeg-7.1-GPL-3.0.txt`.
+
+- Node.js v24.19.0 source: https://github.com/nodejs/node/tree/v24.19.0 .
+- FFmpeg 7.1 source: https://github.com/FFmpeg/FFmpeg/tree/n7.1 .
+- FFmpeg Windows binary distributor and build information: https://www.gyan.dev/ffmpeg/builds/ .
 
 - FFmpeg: https://ffmpeg.org/ ; license information: https://ffmpeg.org/legal.html .
 - Node.js: https://nodejs.org/ ; license information: https://github.com/nodejs/node/blob/main/LICENSE .

@@ -19,7 +19,7 @@
 
 ## Windows 程序包
 
-从 [Releases](https://github.com/cjj-yue/Qqmusic_download/releases) 下载 Windows x64 程序包，解压后运行 `QQMusicDownloader.exe`。EXE 自带 Python / Tk，无需安装 Python；FFmpeg 和 Node 需单独安装，配置方法见下文。
+从 [Releases](https://github.com/cjj-yue/Qqmusic_download/releases) 下载 `QQMusicDownloader-v1.0.0-windows-x64.exe`，双击即可运行。完整 EXE 已内置 Python、Tk、FFmpeg 和 Node，无需另外安装运行环境。
 
 ## 源码运行环境
 
@@ -28,7 +28,7 @@
 - 单独安装 [FFmpeg](https://ffmpeg.org/download.html)；音频校验、转换需要它。
 - 单独安装 [Node.js](https://nodejs.org/en/download)；加密音频处理需要它。
 
-本仓库和默认构建产物不包含 FFmpeg / Node 二进制文件。可以把 `ffmpeg.exe`、`node.exe` 放入程序旁的 `bin` 文件夹，加入系统 PATH，或分别设置环境变量 `QQMUSIC_FFMPEG`、`QQMUSIC_NODE` 为完整路径。
+以下配置仅适用于直接运行源码；Releases 中的完整 EXE 已包含这些工具。可以把 `ffmpeg.exe`、`node.exe` 放入程序旁的 `bin` 文件夹，加入系统 PATH，或分别设置环境变量 `QQMUSIC_FFMPEG`、`QQMUSIC_NODE` 为完整路径。
 
 ```powershell
 python src/music_gui.py
@@ -80,12 +80,12 @@ python src/music_download.py --query "歌名" --search-only
 ```powershell
 python -m unittest discover -s tests -t . -v
 python -m pip install -r scripts/requirements-build.txt
-python scripts/build_exe.py
+python scripts/build_exe.py --node "C:\tools\node.exe" --ffmpeg "C:\tools\ffmpeg.exe"
 ```
 
 测试使用离线模拟请求和生成的测试音频，不访问真实账号。测试音频功能需先安装 FFmpeg。
 
-构建输出为 `dist\QQMusicDownloader.exe`，包含 Python / Tk 与本项目源文件及许可材料；FFmpeg 和 Node 继续由使用者单独安装。检查成品时执行 `QQMusicDownloader.exe --smoke-test packaged-check.json`。
+构建输出为 `dist\QQMusicDownloader.exe`，内置 Python、Tk、Node 和 FFmpeg，可单独复制到其他 Windows x64 电脑运行。检查成品时执行 `QQMusicDownloader.exe --smoke-test packaged-check.json`。
 
 ## 开源许可与贡献
 

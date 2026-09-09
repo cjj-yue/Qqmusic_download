@@ -1,4 +1,4 @@
-"""Locate separately installed tools without embedding machine-specific paths."""
+"""Locate bundled tools and optional user overrides."""
 import os
 from pathlib import Path
 import shutil
@@ -15,7 +15,8 @@ def find_tool(name):
         if path.is_file():
             return str(path.resolve())
         raise RuntimeError('configured_' + name + '_not_found')
-    for directory in (APP_DIR / 'bin', APP_DIR):
+    bundled = Path(getattr(sys, '_MEIPASS', ROOT)) / 'bin'
+    for directory in (bundled, APP_DIR / 'bin', APP_DIR):
         path = directory / (name + '.exe')
         if path.is_file():
             return str(path)

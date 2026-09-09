@@ -47,6 +47,17 @@ class ReleaseSafetyTests(unittest.TestCase):
             config.write_text('[Account]\nUin=0\n')
             self.assertIsNone(qq_api.active_account_uin())
 
+    def test_bundled_tools_work_without_path(self):
+        with tempfile.TemporaryDirectory() as directory:
+            binary = Path(directory) / 'bin' / 'ffmpeg.exe'
+            binary.parent.mkdir()
+            binary.write_bytes(b'test-placeholder')
+            with patch.dict(os.environ, {}, clear=True), \
+                    patch.object(runtime_tools.sys, '_MEIPASS', directory, create=True), \
+                    patch.object(runtime_tools.shutil, 'which', return_value=None) as lookup:
+                self.assertEqual(runtime_tools.find_tool('ffmpeg'), str(binary))
+                lookup.assert_not_called()
+
     def test_runtime_tools_explicit_path_and_unavailable_error(self):
         with tempfile.TemporaryDirectory() as directory:
             binary = Path(directory) / 'ffmpeg.exe'
