@@ -29,10 +29,12 @@ Before adding provenance comments, `crypto.py` was byte-for-byte equivalent afte
 - The unsigned-32-bit hash behavior and EncV2 handling were checked against this reference during development. The JavaScript streaming transform and Python exporter implement the same format. The full original LICENSE is retained in `licenses/qmc-decoder-GPL-3.0.txt`.
 - The overall GPL-3.0-or-later selection accommodates this reference and potential adapted expression; citing an algorithm alone is not being treated as proof that all referencing code is necessarily derivative.
 
-## External tools — not bundled by this source distribution or build script
+## External tools
 
-- FFmpeg: https://ffmpeg.org/legal.html . The earlier local imageio-ffmpeg 0.6.0 Windows binary reported GPLv3+, while its package LICENSE covered imageio under BSD-2-Clause. That package license alone does not cover the FFmpeg executable. Neither binary nor that mismatched substitution is included here. Users install FFmpeg separately. Anyone who changes packaging to include it must meet the exact binary's applicable license and corresponding-source requirements.
-- Node.js: https://github.com/nodejs/node/blob/main/LICENSE . Invoked as an external process. No Node executable is bundled here. Redistributors who bundle Node must include the actual build's license and bundled third-party notices.
+FFmpeg and Node.js are invoked as external processes and are not included in the program package.
+
+- FFmpeg: https://ffmpeg.org/ ; license information: https://ffmpeg.org/legal.html .
+- Node.js: https://nodejs.org/ ; license information: https://github.com/nodejs/node/blob/main/LICENSE .
 
 ## Python, Tcl/Tk and PyInstaller
 
@@ -42,4 +44,4 @@ For Python installations missing a Tcl notice, an exact-version fallback is prov
 
 PyInstaller is a build dependency. Its GPL exception permits distribution of generated applications under their chosen license, subject to dependencies: https://pyinstaller.org/en/stable/license.html . PyInstaller itself is not modified here.
 
-No third-party permission above grants rights to music recordings, account sessions, service access, trademarks or circumvention of technical measures. See `RELEASE_REVIEW.md` for the remaining scope of review.
+No third-party permission above grants rights to music recordings, account sessions, service access, trademarks or circumvention of technical measures.

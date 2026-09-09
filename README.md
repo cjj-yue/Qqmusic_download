@@ -13,18 +13,22 @@
 
 ## 使用条件
 
-可用歌曲和音质取决于官方返回的资源及使用者账号权限。源代码许可不授予音乐版权、平台接口使用许可或技术措施规避许可。发布或使用涉及会话读取、受保护音频的功能前，应确认适用条件；详见 [发布核对说明](docs/RELEASE_REVIEW.md)。
+可用歌曲和音质取决于官方返回的资源及使用者账号权限。仅能试听的歌曲无法通过转换格式变成完整歌曲。
 
 默认只查询公开资源。勾选窗口底部“使用本机 QQ 音乐当前账号”才会读取 `QQMusic.exe` 的登录会话；只接受与客户端当前账号配置一致的候选。无法确认当前账号时继续公开资源查询，不使用历史账号。会话与密钥保留在进程内存中，不写入日志；账号请求只发送给固定 QQ 音乐 HTTPS 接口，拒绝自动重定向。
 
-## 运行环境
+## Windows 程序包
+
+从 [Releases](https://github.com/cjj-yue/Qqmusic_download/releases) 下载 Windows x64 程序包，解压后运行 `QQMusicDownloader.exe`。EXE 自带 Python / Tk，无需安装 Python；FFmpeg 和 Node 需单独安装，配置方法见下文。
+
+## 源码运行环境
 
 - Windows 10 / 11，64 位。
 - Python 3.12（包含 Tk；推荐使用 python.org 安装器）。
 - 单独安装 [FFmpeg](https://ffmpeg.org/download.html)；音频校验、转换需要它。
 - 单独安装 [Node.js](https://nodejs.org/en/download)；加密音频处理需要它。
 
-本仓库和默认构建产物不包含 FFmpeg / Node 二进制文件。可以把 `ffmpeg.exe`、`node.exe` 放入程序旁的 `bin` 文件夹，加入系统 PATH，或分别设置环境变量 `QQMUSIC_FFMPEG`、`QQMUSIC_NODE` 为完整路径。不要把自己安装的二进制文件提交到仓库。
+本仓库和默认构建产物不包含 FFmpeg / Node 二进制文件。可以把 `ffmpeg.exe`、`node.exe` 放入程序旁的 `bin` 文件夹，加入系统 PATH，或分别设置环境变量 `QQMUSIC_FFMPEG`、`QQMUSIC_NODE` 为完整路径。
 
 ```powershell
 python src/music_gui.py
@@ -38,13 +42,13 @@ python src/music_gui.py
 src/        程序源码与解码模块
 tests/      离线测试
 scripts/    构建脚本与构建依赖清单
-docs/       第三方来源及发布核对说明
+docs/       第三方来源说明
 licenses/   第三方许可证
 README.md   使用说明
 LICENSE     项目许可证
 ```
 
-本目录用于手动上传源码，不包含本地 Git 仓库、旧提交历史或 Git 配置文件。运行或构建后可能产生 `__pycache__`、`build`、`dist` 等文件夹，上传源码时应排除这些生成内容。
+程序源码位于 `src`，测试和构建命令见下文。
 
 ## 单曲、多选和歌单
 
